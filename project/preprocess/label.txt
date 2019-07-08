@@ -1,0 +1,20 @@
+ban-hang",  //1
+"xay-dung",  
+"kien-truc", //3
+"ngan-hang",
+"it-phan-mem",       //5
+"giao-duc",
+"du-lich",   //7
+"co-khi-che-tao",
+"ke-toan",   //9
+"phap-luat-ly",
+"bao-hiem",//11
+"nha-hang-khach-san",
+"dien-tu-lanh",//13
+"nhan-su",
+"marketing",//15
+"it-phan-cung",
+"bat-dong-san",//17
+"y-te-duoc",
+"cong-nghe-cao",//19
+"dau-khi",
