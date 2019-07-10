@@ -16,7 +16,10 @@ public class Classification {
 	public static void main(String[] args) throws IOException {
 		
 		RDRsegmenter segmenter = new RDRsegmenter();
-		String string = "Được dịch từ tiếng Anh-LIBSVM và LIBLINEAR là hai thư viện máy học mã nguồn mở phổ biến, cả hai đều được phát triển tại Đại học Quốc gia Đài Loan và cả hai đều được viết bằng C ++ mặc dù có API C. LIBSVM thực hiện thuật toán tối ưu hóa tuần tự cho các máy vectơ hỗ trợ đã nhân, hỗ trợ phân loại và hồi quy.";
+		String string = "- Tham gia lập kế hoạch và triển khai các hoạt động Marketing ngắn hạn và dài hạn.\r\n" + 
+				"- Tham gia xây dựng, phát triển và quản trị nội dung trên các phương tiện truyền thông có chọn lọc\r\n" + 
+				"- Tổ chức hoạt động, sự kiện liên quan đến hoạt động PR – Marketing\r\n" + 
+				"- Thực hiện các nhiệm vụ khác theo yêu cầu của Trưởng phòng Marketing và Ban Giám Đốc";
 		string = RemoveSB.removeSB(string);
 		string = segmenter.segmentRawString(string);
 		string = String.join(" ", RemoveStopWord.removeStopWord(string));

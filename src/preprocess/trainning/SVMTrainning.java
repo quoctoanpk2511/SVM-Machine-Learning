@@ -16,9 +16,12 @@ public class SVMTrainning {
 		List<Document> listDoc1 = new ArrayList<Document>();
 		List<Document> listDoc2 = new ArrayList<Document>();
 		
-		String[] field = {"ban-hang", "xay-dung", "kien-truc", "ngan-hang", "it-phan-mem", "giao-duc", "du-lich", "co-khi-che-tao", "ke-toan", "phap-luat-ly", "bao-hiem", "nha-hang-khach-san", "dien-tu-lanh", "nhan-su", "marketing", "it-phan-cung", "bat-dong-san", "y-te-duoc", "cong-nghe-cao", "dau-khi"};
+//		"ban-hang"1, , "ke-toan"9
+		
+//		String[] field = {"xay-dung", "kien-truc", "ngan-hang", "it-phan-mem", "giao-duc", "du-lich", "co-khi-che-tao", "phap-luat-ly", "bao-hiem", "nha-hang-khach-san", "dien-tu-lanh", "nhan-su", "marketing", "it-phan-cung", "bat-dong-san", "y-te-duoc", "cong-nghe-cao", "dau-khi"};
+		String[] field = {"du-lich", "giao-duc"};
 		for (int i = 0; i < field.length; i++) {
-			listDoc2 = ReadDB.readFile("JOBDB", field[i]);
+			listDoc2 = ReadDB.readFile("TestDB", field[i]);
 			listDoc1.addAll(listDoc2);
 		}
 			
@@ -74,7 +77,7 @@ public class SVMTrainning {
 		}
 		
 		
-		WriteFile.writeFile("src/preprocess/data/traindata.txt", allNode);
+		WriteFile.writeFile("src/preprocess/data/traindata.train", allNode);
 		
 //		System.err.println("done");
 	}

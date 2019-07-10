@@ -79,7 +79,7 @@ public class Vector {
 		} 
         List<Double> idf = new ArrayList<Double>();        
         for (int i = 0; i < dict.size(); i++) {
-			idf.add(Math.log10(segString.size()/count.get(i)));
+			idf.add(Math.log(segString.size()/count.get(i)));
 //	        System.out.println(segString.size() + "////////"  + count.get(i));
 		}
 

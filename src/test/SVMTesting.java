@@ -25,7 +25,11 @@ public class SVMTesting {
 		List<Document> listDoc1 = new ArrayList<Document>();
 		List<Document> listDoc2 = new ArrayList<Document>();
 		
-		String[] field = {"ban-hang", "xay-dung", "kien-truc", "ngan-hang", "it-phan-mem", "giao-duc", "du-lich", "co-khi-che-tao", "ke-toan", "phap-luat-ly", "bao-hiem", "nha-hang-khach-san", "dien-tu-lanh", "nhan-su", "marketing", "it-phan-cung", "bat-dong-san", "y-te-duoc", "cong-nghe-cao", "dau-khi"};
+//		"ban-hang", "xay-dung", "kien-truc", "ngan-hang", "it-phan-mem", "giao-duc", "du-lich", "co-khi-che-tao", "ke-toan", "phap-luat-ly", "bao-hiem", "nha-hang-khach-san", "dien-tu-lanh", "nhan-su", "marketing", "it-phan-cung", "bat-dong-san", "y-te-duoc", "cong-nghe-cao", "dau-khi"
+		
+//		String[] field = {"xay-dung", "kien-truc", "ngan-hang", "it-phan-mem", "co-khi-che-tao", "dien-tu-lanh"};
+		
+		String[] field = {"co-khi-che-tao", "xay-dung"};
 		for (int i = 0; i < field.length; i++) {
 			listDoc2 = ReadDB.readFile("JOBDBTest", field[i]);
 			listDoc1.addAll(listDoc2);
@@ -74,6 +78,8 @@ public class SVMTesting {
 			allNode = allNode + labelString.get(i) + " " + node + "\n";	
 		}
 				
-		WriteFile.writeFile("src/preprocess/data/testdata.txt", allNode);
+		WriteFile.writeFile("src/test/data/testdata.test", allNode);
+		
+		System.err.println("Done!");
 	}
 }
