@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class CheckVietNameseDocs {
+	
+	// Hàm kiểm tra xem đây có phải văn bản tiếng Việt không
 	public static boolean checkVnDoc(String string) throws IOException {
 		List<String> Vndict = Files.readAllLines(Paths.get("src/preprocess/StopWord.txt"));
 		Set<String> TokenSet = new TreeSet<>();

@@ -29,9 +29,9 @@ public class SVMTesting {
 		
 //		String[] field = {"xay-dung", "kien-truc", "ngan-hang", "it-phan-mem", "co-khi-che-tao", "dien-tu-lanh"};
 		
-		String[] field = {"co-khi-che-tao", "xay-dung"};
+		String[] field = {"it", "xaydung", "phiendich" , "marketing"};
 		for (int i = 0; i < field.length; i++) {
-			listDoc2 = ReadDB.readFile("JOBDBTest", field[i]);
+			listDoc2 = ReadDB.readCollection("JOBDBTest", field[i]);
 			listDoc1.addAll(listDoc2);
 		}
 			
@@ -43,7 +43,6 @@ public class SVMTesting {
 		
 		for (int i = 0; i < listDoc1.size(); i++) {
 			String str = listDoc1.get(i).getContent();
-//			str = str.replaceAll("\\n","");
 			str = segmenter.segmentRawString(str);
 			boolean check = CheckVietNameseDocs.checkVnDoc(str);
 			if (check == true) {

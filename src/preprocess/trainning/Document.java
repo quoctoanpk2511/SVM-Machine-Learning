@@ -1,6 +1,5 @@
 package preprocess.trainning;
 
-
 public class Document {
 
 	private String content;

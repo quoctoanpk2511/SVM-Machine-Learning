@@ -13,13 +13,9 @@ import preprocess.trainning.Vector;
 import preprocess.trainning.WriteFile;
 
 public class Classification {
-	public static void main(String[] args) throws IOException {
-		
+//	public static void main(String[] args) throws IOException {
+	public static String Classifier(String string) throws IOException {
 		RDRsegmenter segmenter = new RDRsegmenter();
-		String string = "- Tham gia lập kế hoạch và triển khai các hoạt động Marketing ngắn hạn và dài hạn.\r\n" + 
-				"- Tham gia xây dựng, phát triển và quản trị nội dung trên các phương tiện truyền thông có chọn lọc\r\n" + 
-				"- Tổ chức hoạt động, sự kiện liên quan đến hoạt động PR – Marketing\r\n" + 
-				"- Thực hiện các nhiệm vụ khác theo yêu cầu của Trưởng phòng Marketing và Ban Giám Đốc";
 		string = RemoveSB.removeSB(string);
 		string = segmenter.segmentRawString(string);
 		string = String.join(" ", RemoveStopWord.removeStopWord(string));
@@ -32,8 +28,7 @@ public class Classification {
 		}
 
 		String node = Vector.NodeCalculating(idf, dict, string);
-		System.out.println(node);
 		WriteFile.writeFile("src/demoSVM/predict.txt", node);
-		
+		return node;
 	}
 }

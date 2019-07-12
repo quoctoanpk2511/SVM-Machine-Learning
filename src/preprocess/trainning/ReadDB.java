@@ -11,7 +11,8 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
 public class ReadDB {
-    public static List<Document> readFile(String dbName, String inFileName) throws UnknownHostException {
+	// Đọc dữ liệu từ MongoDB
+    public static List<Document> readCollection(String dbName, String inFileName) throws UnknownHostException {
    
 		List<Document> listdoc = new ArrayList<Document>();
 		 MongoClient mongoClient = new MongoClient("localhost", 27017);

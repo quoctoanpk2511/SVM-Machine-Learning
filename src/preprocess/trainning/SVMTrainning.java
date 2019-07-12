@@ -18,10 +18,10 @@ public class SVMTrainning {
 		
 //		"ban-hang"1, , "ke-toan"9
 		
-//		String[] field = {"xay-dung", "kien-truc", "ngan-hang", "it-phan-mem", "giao-duc", "du-lich", "co-khi-che-tao", "phap-luat-ly", "bao-hiem", "nha-hang-khach-san", "dien-tu-lanh", "nhan-su", "marketing", "it-phan-cung", "bat-dong-san", "y-te-duoc", "cong-nghe-cao", "dau-khi"};
-		String[] field = {"du-lich", "giao-duc"};
+//		String[] field = {"xaydung", "kientruc", "nganhang", "itphanmem", "giaoduc", "dulich", "co-khi-che-tao", "phap-luat-ly", "bao-hiem", "nha-hang-khach-san", "dien-tu-lanh", "nhan-su", "marketing", "it-phan-cung", "bat-dong-san", "y-te-duoc", "cong-nghe-cao", "dau-khi"};
+		String[] field = {"it", "xaydung", "phiendich" , "marketing"};
 		for (int i = 0; i < field.length; i++) {
-			listDoc2 = ReadDB.readFile("TestDB", field[i]);
+			listDoc2 = ReadDB.readCollection("JOBDB", field[i]);
 			listDoc1.addAll(listDoc2);
 		}
 			
@@ -33,7 +33,6 @@ public class SVMTrainning {
 		
 		for (int i = 0; i < listDoc1.size(); i++) {
 			String str = listDoc1.get(i).getContent();
-//			str = str.replaceAll("\\n","");
 			str = segmenter.segmentRawString(str);
 			boolean check = CheckVietNameseDocs.checkVnDoc(str);
 			if (check == true) {
@@ -79,7 +78,7 @@ public class SVMTrainning {
 		
 		WriteFile.writeFile("src/preprocess/data/traindata.train", allNode);
 		
-//		System.err.println("done");
+		System.err.println("Done!");
 	}
 	
 	

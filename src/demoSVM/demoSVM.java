@@ -5,7 +5,6 @@ import java.io.IOException;
 import libsvm.svm;
 import libsvm.svm_model;
 import libsvm.svm_node;
-import preprocess.trainning.ReadFile;
 
 public class demoSVM {
 
@@ -42,9 +41,8 @@ public class demoSVM {
 //		
 //		svm_train.train(str1, str2);
 
-		
-		System.out.println(predict("93:0.08224 503:0.207 848:0.16483 1043:0.09425 1224:0.19197 1581:0.03924 1774:0.03924 1830:0.17244 2117:0.16755 2134:0.09425 2265:0.0695 2383:0.06399 2402:0.08224 2431:0.15122 2514:0.09672 2605:0.10516 2865:0.10516 2908:0.13899 3274:0.03924 3296:0.08224 3344:0.08564 3561:0.0695 3835:0.03924"
-				,"C:\\Users\\QuocToan\\Desktop\\libsvm-3.23\\windows\\traindata.train.model"));
+		String string = Classification.Classifier("1. Tìm kiếm nhà thầu đủ năng lực phục vụ cho các dự án của tập đoàn. Thu thập thông tin gói thầu, lập hồ sơ mời thầu 3. Tiến hành mời thầu, tiếp nhận hồ sơ mời thầu, phân tích, đánh giá hồ sơ dự thầu của các nhà, lập đề xuất lựa chọn nhà thầu 4. Soạn thảo hợp đồng, phụ lục hợp đồng, thương thảo, đàm phán ký kết hợp đồng 5. Theo dõi việc thực hiện hợp đồng, xử lý các phát sinh sau khi ký kết hợp đồng 6. Phối hợp tốt với các bộ phận khác trong công ty để hoàn thành công tác đầu thầu 7. Thực hiện các công việc khác do trưởng bộ phận giao");
+		System.out.println(predict(string, "C:\\Users\\QuocToan\\Desktop\\libsvm-3.23\\windows\\4jobold.train.model"));
 		
 	}
 

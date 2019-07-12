@@ -12,7 +12,7 @@ public class Vector {
 			data.addAll(RemoveStopWord.removeStopWord(str));
 		}
 		
-		//vector
+		//Tính tần số
 		List<Double> frequency = new ArrayList<Double>();
 		for (int i = 0; i < dict.size(); i++) {
 			double k = 0;
@@ -24,42 +24,18 @@ public class Vector {
 			frequency.add(k);
 		}	
         
-        //Tinh tf
+        //Tính tf
         List<Double> tf = new ArrayList<Double>();        
         for (int i = 0; i < frequency.size(); i++) {
 			tf.add(frequency.get(i)/data.size());
 		}
-//        System.err.println(tf);
 
         return tf;
 
 	}
 	
-	//Tinh tf-idf
-	public static String NodeCalculating(List<Double> idf, List<String> dict, String segStr) throws IOException {
-		
-		List<Double> tf = new ArrayList<Double>();
-		tf = TfCalculating(dict, segStr);
-		
-        List<Double> tf_idf = new ArrayList<Double>();
-        for (int i = 0; i < dict.size(); i++) {
-        	Double rate = tf.get(i)*idf.get(i);
-        	tf_idf.add((double) Math.round(rate * 100000) / 100000);
-		}
-        
-        String node = "";
-        for (int i = 0; i < dict.size(); i++) {
-        	if (tf_idf.get(i) != 0) {
-        		node = node + (i + 1) + ":" + tf_idf.get(i) + " ";
-			}			
-		}
-//        System.out.println(node);
-        return node;
-	}
-	
-	//Tinh idf
+	//Tính idf
 	public static List<Double> IdfCalculating(List<String> segString, List<String> dict) {
-
         List<Integer> count = new ArrayList<Integer>();
         for (int i = 0; i < dict.size(); i++) {
             int k = 0;
@@ -80,11 +56,29 @@ public class Vector {
         List<Double> idf = new ArrayList<Double>();        
         for (int i = 0; i < dict.size(); i++) {
 			idf.add(Math.log(segString.size()/count.get(i)));
-//	        System.out.println(segString.size() + "////////"  + count.get(i));
 		}
-
-//        System.out.println(idf);
-		return idf;
-		
+		return idf;	
 	}
+	
+	//Tính tf-idf
+	public static String NodeCalculating(List<Double> idf, List<String> dict, String segStr) throws IOException {
+		List<Double> tf = new ArrayList<Double>();
+		tf = TfCalculating(dict, segStr);
+		
+        List<Double> tf_idf = new ArrayList<Double>();
+        for (int i = 0; i < dict.size(); i++) {
+        	Double rate = tf.get(i)*idf.get(i);
+        	tf_idf.add((double) Math.round(rate * 100000) / 100000);
+		}
+        
+        String node = "";
+        for (int i = 0; i < dict.size(); i++) {
+        	if (tf_idf.get(i) != 0) {
+        		node = node + (i + 1) + ":" + tf_idf.get(i) + " ";
+			}			
+		}
+        return node;
+	}
+	
+	
 }

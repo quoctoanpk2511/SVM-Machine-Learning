@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class ReadFile {
+	// Đọc file chứa dict và idf
 	public static Map<String, Double> readFile(String inFilePath) throws IOException {
 
     	try(BufferedReader br = Files.newBufferedReader(Paths.get(inFilePath))) {
